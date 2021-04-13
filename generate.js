@@ -57,6 +57,32 @@ console.log(generatorS);
 
 
 
+'use strict';
+
+function* Blabla(start, end, delta) {
+  let value = start;
+  while(end > value) {
+    value += delta;
+     //if (value > end) return; // (проверка)done:false для 7-35, дальше value: undefined done:true
+    yield value;
+  }
+}
+
+const a = Blabla(0, 36, 7);
+const c1 = a.next();
+const c2 = a.next();
+const c3 = a.next();
+const c4 = a.next();
+const c5 = a.next();
+const c6 = a.next();
+const c7 = a.next(); //done:true итерирование закончилось
+console.log({a, c1, c2, c3, c4, c5, c6, c7});
+
+
+
+
+
+
 //yield*
 // композиця генераторов - "встраивание" генераторов друг в друга
 
@@ -117,3 +143,24 @@ function* genFn1() {
 }
 
 console.log('[...genFn1()] =', [...genFn1()]);
+
+
+
+
+//ненужные методы return и throw
+//.throw генерирует ошибку
+
+'use strict';
+
+function* genFn5() {
+  yield 10;
+}
+
+{
+  const g = genFn5();
+  const g1 = g.next();
+  const g2 = g.return(20); // done:true
+  const g3 = g.next();
+  const g4 = g.return(30); // done: true
+  console.log({g1, g2, g3, g4});
+}
