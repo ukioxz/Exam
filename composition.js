@@ -18,10 +18,10 @@ const str = "tired"
 const str1 = "aa";
 
 const compose = (...fns) => x => fns.reduceRight((acc, fn) => fn(acc), x);
-const withCompose = compose(repeat1, exclaim1, upperCase1);
+const withCompose = compose(repeat, exclaim, upperCase);
 
 const pipe = (...fns) => x => fns.reduce((acc, fn) => fn(acc), x);
-const withPipe = pipe(repeat, exclaim, upperCase);
+const withPipe = pipe(repeat1, exclaim1, upperCase1);
 
 console.log(`${withCompose(str)}`); //TIRED!!!!!!TIRED!!!!!!TIRED!!!!!!
 console.log(`${withPipe(str1)}`); //AAAAAA!!!!!!
