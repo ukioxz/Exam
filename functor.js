@@ -1,3 +1,7 @@
+//функтор можем из одного контейнера преобразовывать через функцию и класть в
+//новый контейнер
+
+
 'use strict';
 
 function Maybe(x) {
@@ -12,6 +16,8 @@ Maybe.prototype.map = function(fn) {
   }
 };
 
-new Maybe(5).map().map(console.log);
-new Maybe(5).map(x => x*2).map(console.log);
+new Maybe(3).map().map(console.log);           //создается новый экземпляр и(3) ложится в контейнер
+                                              //map()происходит преобразованеи ,пустой контейнер(new Maybe(null)) поэтому
+                                              //map(console.log) не вызывается
+new Maybe(3).map(x => x*2).map(console.log);  // преобразовываем через функцию (и ложится в новый контейнер) и выводим
 new Maybe(null).map(x => x*2).map(console.log);
