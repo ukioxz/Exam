@@ -16,6 +16,10 @@ Maybe.prototype.map = function(fn) {
   }
 };
 
+//Maybe.prototype.map = function(fn) {
+//  return new Maybe(this.x && fn ? fn(this.x): null);
+//};
+
 new Maybe(3).map().map(console.log);           //создается новый экземпляр и(3) ложится в контейнер
                                               //map()происходит преобразованеи ,пустой контейнер(new Maybe(null)) поэтому
                                               //map(console.log) не вызывается
