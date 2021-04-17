@@ -90,3 +90,18 @@ p1get(-5, 7);
 console.log(p1);
 console.log(p1toString());
 console.log(p1 + '');
+
+
+
+'use strict';
+
+class Square {
+  toString() {
+    return `${this.x}, ${this.y}, ${this.width}, ${this.height}`;
+  }
+}
+
+const a = { x: 4, y: 2, width: 8, height: 8};
+Object.setPrototypeOf(a, Square.prototype); // второй аргумент от кого наследуем
+
+console.log(a.toString());
