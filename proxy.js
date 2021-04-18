@@ -24,3 +24,18 @@ for (const key in cat) {
 console.log(cat.host);
 console.log(cat.breed);
 console.log(cat.name);
+
+
+
+
+'use strict';
+
+const data1 = {name: 'Charly', host: 'Pete', age: 3 };
+
+const cat1 = new Proxy(data1, {
+  ownKeys(obj) {
+    return Object.keys(obj).filter(name => !name.startsWith('a')); //не выводим ключ начинающийся на "а"
+  }
+});
+
+console.dir(Object.keys(cat1));
